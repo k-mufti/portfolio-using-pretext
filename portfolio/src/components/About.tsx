@@ -155,7 +155,7 @@ export default function About() {
         {/* Letter paragraphs */}
         <div className="flex flex-col gap-5" style={{ color: 'rgba(255,255,255,0.62)', lineHeight: '1.75' }}>
           <p>
-            I build things, watch them break, fix them, then repeat.
+            I build things then watch them break.
           </p>
           <p>
             I'm a CS student at UIC graduating May&nbsp;2027, with a habit of
@@ -175,13 +175,13 @@ export default function About() {
           <div className="flex flex-col gap-1">
             <span className="text-white/80 text-sm" style={{ fontWeight: 300 }}>Kareem Muftee</span>
             <a
-              href="https://github.com/karimmufti"
+              href="https://github.com/k-mufti"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-white/35 hover:text-white/70 transition-colors duration-200"
               style={{ fontSize: '0.65rem', letterSpacing: '0.05em' }}
             >
-              @karimmufti
+              @k-mufti
             </a>
           </div>
 

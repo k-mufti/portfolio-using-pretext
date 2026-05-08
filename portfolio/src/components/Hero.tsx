@@ -3,9 +3,9 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const SPHERE_SKILLS = [
   'React', 'TypeScript', 'Go', 'Python', 'Kafka',
-  'CUDA', 'Redis', 'C++', 'PostgreSQL', 'Docker',
+  'C', 'Redis', 'C++', 'PostgreSQL', 'Docker',
   'Node.js', 'Supabase', 'WebSockets', 'Linux', 'SQL',
-  'Three.js', 'Vite', 'Tailwind', 'GLSL', 'AWS',
+  'Three.js', 'Vite', 'Tailwind', 'Azure', 'AWS', 'gRPC',
 ]
 const DEFAULT_PTS = 150
 
@@ -48,6 +48,15 @@ const FONT_CACHE_MOBILE = Array.from({ length: 3 }, (_, i) => `${5 + i}px 'JetBr
 
 const SPHERE_TOP_PCT = 57
 
+function buildSkillMap(count: number): string[] {
+  const map = Array.from({ length: count }, (_, i) => SPHERE_SKILLS[i % SPHERE_SKILLS.length])
+  for (let i = map.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[map[i], map[j]] = [map[j], map[i]]
+  }
+  return map
+}
+
 interface Props { onEnter: () => void }
 
 export default function Hero({ onEnter }: Props) {
@@ -58,6 +67,7 @@ export default function Hero({ onEnter }: Props) {
   const [btnVisible, setBtnVisible] = useState(true)
   const pts = useRef<Vec3[]>(fibSphere(DEFAULT_PTS))
   const edges = useRef<[number, number][]>([])
+  const skillMap = useRef<string[]>(buildSkillMap(DEFAULT_PTS))
   const state = useRef<SphereState>({
     rX: 0.3, rY: 0, vX: 0, vY: 0.004,
     dragging: false, lastX: 0, lastY: 0, raf: 0,
@@ -87,6 +97,7 @@ export default function Hero({ onEnter }: Props) {
   useEffect(() => {
     pts.current = fibSphere(numPts)
     edges.current = buildEdges(pts.current)
+    skillMap.current = buildSkillMap(numPts)
   }, [numPts])
 
   useEffect(() => { edges.current = buildEdges(pts.current) }, [])
@@ -189,7 +200,7 @@ export default function Hero({ onEnter }: Props) {
         ctx.font = FONT_CACHE[Math.round(depth * 7)]
         const v = Math.round(30 + depth * 225)
         ctx.fillStyle = `rgb(${v},${v},${v})`
-        ctx.fillText(SPHERE_SKILLS[i % SPHERE_SKILLS.length], cx + px * r, cy + py * r)
+        ctx.fillText(skillMap.current[i] ?? SPHERE_SKILLS[i % SPHERE_SKILLS.length], cx + px * r, cy + py * r)
       }
       ctx.globalAlpha = 1
 
@@ -253,7 +264,7 @@ export default function Hero({ onEnter }: Props) {
           x: sx, y: sy,
           vx: (dirX / len) * speed + (Math.random() - 0.5) * 2,
           vy: (dirY / len) * speed + (Math.random() - 0.5) * 2,
-          ch: SPHERE_SKILLS[i % SPHERE_SKILLS.length],
+          ch: skillMap.current[i] ?? SPHERE_SKILLS[i % SPHERE_SKILLS.length],
           depth: (pz + 1) / 2,
         }
       })

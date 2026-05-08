@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const EMAIL = 'karroomdj2005@gmail.com'
+const EMAIL = 'kareem.muftee@gmail.com'
 const SYMBOLS = '◆●▲■◇★◈'
 const SOURCE = (EMAIL + ' ' + SYMBOLS + ' ' + EMAIL).split('')
 
@@ -261,19 +261,19 @@ export default function Contact() {
 
         {/* Email */}
         <a
-          href="mailto:karroomdj2005@gmail.com"
+          href="mailto:kareem.muftee@gmail.com"
           className="font-mono text-white/70 hover:text-white transition-colors duration-200 tracking-wide"
           style={{ fontSize: 'clamp(0.75rem, 2vw, 1rem)' }}
         >
-          karroomdj2005@gmail.com
+          kareem.muftee@gmail.com
         </a>
 
         {/* Interactive logo orbs */}
         <div className="flex gap-16 mt-2">
           <LogoOrb
             shape="github"
-            href="https://github.com/karimmufti"
-            label="github.com/karimmufti"
+            href="https://github.com/k-mufti"
+            label="github.com/k-mufti"
           />
           <LogoOrb
             shape="linkedin"
@@ -281,6 +281,16 @@ export default function Contact() {
             label="linkedin.com/in/kareem-muftee"
           />
         </div>
+
+        <a
+          href="/Kareem_Muftee_Resume_SWE.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono uppercase tracking-[0.25em] text-white/80 hover:text-white border border-white/50 hover:border-white transition-all duration-200 px-6 py-2 mt-2"
+          style={{ fontSize: '0.6rem' }}
+        >
+          View Resume
+        </a>
 
         <p className="font-mono text-white/20 mt-6" style={{ fontSize: '0.55rem', letterSpacing: '0.2em' }}>
           © {new Date().getFullYear()} Kareem Muftee
