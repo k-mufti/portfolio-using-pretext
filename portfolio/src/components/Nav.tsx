@@ -34,6 +34,14 @@ export default function Nav({ onHome }: Props) {
             {label}
           </a>
         ))}
+        <a
+          href="/Kareem-Muftee-Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[0.6rem] tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors duration-200"
+        >
+          Resume
+        </a>
       </div>
     </nav>
   )
