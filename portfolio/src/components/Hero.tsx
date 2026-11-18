@@ -542,12 +542,12 @@ export default function Hero({ onEnter }: Props) {
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.4, delay: 1, ease: [0.16, 1, 0.3, 1] }}
         />
-        <p className="font-mono text-white/50 mt-4 tracking-[0.2em] text-center"
-          style={{ fontSize: 'clamp(0.6rem, 1.4vw, 0.75rem)' }}>
+        <p className="text-white/75 mt-5 uppercase text-center"
+          style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 500, fontSize: 'clamp(0.72rem, 1.5vw, 0.95rem)', letterSpacing: '0.34em', paddingLeft: '0.34em' }}>
           <Scramble text="Software Engineer & Systems Builder" onView delay={1100} speed={22} />
         </p>
-        <p className="font-mono text-white/30 mt-1.5 tracking-[0.15em] text-center"
-          style={{ fontSize: 'clamp(0.55rem, 1.1vw, 0.64rem)' }}>
+        <p className="text-white/40 mt-2 text-center"
+          style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 300, fontSize: 'clamp(0.7rem, 1.2vw, 0.85rem)', letterSpacing: '0.12em' }}>
           <Scramble text="BS in CS @ UIC · Building things" onView delay={1700} speed={22} />
         </p>
       </div>
